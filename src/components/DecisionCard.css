@@ -1,0 +1,98 @@
+.dcard-transition-group {
+  --card-width: 600px;
+
+  display: grid;
+  place-items: center;
+  grid-auto-columns: var(--card-width);
+  grid-auto-flow: column;
+  width: var(--card-width);
+  overflow: hidden;
+}
+
+.card-exit {
+  grid-column: 1;
+  transform: scaleX(1) translateX(0);
+  transform-origin: top right;
+}
+
+.card-enter {
+  grid-column: 2;
+  transform: scaleX(1.5) translateX(0);
+  transform-origin: top left;
+}
+
+.card-enter-active {
+  transform: scaleX(1) translateX(calc(var(--card-width) * -1));
+  transition: transform 500ms cubic-bezier(.96,-0.28,.26,1.18);
+}
+
+.card-exit-active {
+  transform: scaleX(1.5) translateX(calc(var(--card-width) * -1));
+  transition: transform 500ms cubic-bezier(.96,-0.28,.26,1.18);
+}
+
+.dcard-root {
+  display: grid;
+  
+  background: var(--color-base-dark);
+  border-radius: 6px;
+  overflow: hidden;
+  max-width: 500px;
+}
+
+.dcard-anim {
+  position: relative;
+  display: grid;
+  place-items: center;
+
+  border-bottom: 2px solid var(--color-base-lighter)
+}
+
+.dcard-anim > div {
+  display: grid;
+}
+
+.dcard-prompt {
+  padding: 1rem 3rem;
+
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  max-width: 100%;
+
+  background-color: var(--color-base-dark-o50);
+  backdrop-filter: blur(3px);
+}
+
+.dcard-buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  gap: 1rem;
+  padding: 1.5rem;
+}
+
+.dcard-buttons > * {
+  flex-grow: 1;
+}
+
+.dcard-buttons .clicked {
+  animation: clicked 200ms ease 50ms 1 normal both;
+}
+
+@keyframes clicked {
+  0% {
+    border-color: transparent;
+    transform: scale(1);
+  }
+
+  50% {
+    border-color: var(--color-accent);
+  }
+
+  100% {
+    border-color: transparent;
+    transform: scale(1);
+  }
+}

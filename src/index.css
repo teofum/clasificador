@@ -1,0 +1,18 @@
+@import './styles/resets.css';
+@import './styles/theme.css';
+
+body {
+  margin: 0;
+  font-family: 'Chivo', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+p {
+  max-width: 45ch;
+}

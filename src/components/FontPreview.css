@@ -1,0 +1,13 @@
+.pre-container {
+  width: 500px;
+}
+
+.pre-font {
+  background-color: var(--color-base-dark);
+  border-radius: 6px;
+  margin-top: 0.5rem;
+
+  font-size: 4em;
+  padding: 1.5rem 3rem;
+  text-align: center;
+}

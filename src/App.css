@@ -1,0 +1,38 @@
+.App {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto;
+
+  place-items: center;
+  place-content: center;
+  gap: 2rem;
+  height: 100vh;
+  
+  background-color: var(--color-base);
+  color: var(--color-text);
+}
+
+.title {
+  justify-self: start;
+  align-self: end;
+
+  font-size: 2.5em;
+  font-weight: 900;
+}
+
+.summary {
+  place-self: stretch;
+  background-color: inherit;
+
+  z-index: 1;
+}
+
+.summary p {
+  max-width: 30ch;
+  hyphens: auto;
+}
+
+.decision-slides {
+  margin: 0 -50px;
+}
