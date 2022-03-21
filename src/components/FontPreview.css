@@ -1,13 +1,20 @@
-.pre-container {
-  width: 500px;
-}
-
-.pre-font {
+.pre-font,
+.pre-placeholder {
   background-color: var(--color-base-dark);
   border-radius: 6px;
   margin-top: 0.5rem;
 
-  font-size: 4em;
+  min-height: 7rem;
   padding: 1.5rem 3rem;
   text-align: center;
+}
+
+.pre-placeholder {
+  display: grid;
+  place-items: center;
+}
+
+.pre-font {
+  font-size: 4rem;
+  line-height: 4rem;
 }

@@ -7,8 +7,10 @@ import FontPreview from './components/FontPreview';
 import './App.css';
 
 function App() {
+  const [started, setStarted] = useState(false);
   const [customFont, setCustomFont] = useState('');
   const [customFontName, setCustomFontName] = useState('');
+  let fontLoader: HTMLElement | null = null;
 
   const loadFont = async (ev: Event) => {
     const input = ev.target as HTMLInputElement;
@@ -16,7 +18,7 @@ function App() {
     if (input.files) {
       const file = input.files[0];
       const dataUrl = URL.createObjectURL(file);
-      
+
       const parsed = await opentype.load(dataUrl);
       const fontName = parsed.names.fullName.en;
 
@@ -28,6 +30,7 @@ function App() {
 
       setCustomFont(`'${loaded.family}', Chivo`);
       setCustomFontName(fontName);
+      setStarted(true);
     }
   };
 
@@ -42,21 +45,38 @@ function App() {
           volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation
           ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
         </p>
-
-        <input type='file' name='font_loader' id='font_loader'
-          accept='.ttf, .otf, .woff, .woff2'
-          onChange={ev => loadFont(ev.nativeEvent)} />
       </div>
 
-      {customFont &&
       <div className='font-preview'>
-        <FontPreview fontFace={customFont} fontName={customFontName} />
-      </div>}
+        <FontPreview fontFace={customFont} fontName={customFontName}
+          loadFont={() => fontLoader?.click()}
+          loadImage={() => fontLoader?.click()} />
+      </div>
 
-      {customFont &&
-      <div className='decision-slides'>
-        <DecisionSlides />
-      </div>}
+      {!started &&
+        <div className='font-upload'>
+          <input type='file' name='font_loader' id='font_loader'
+            accept='.ttf, .otf, .woff, .woff2' hidden
+            ref={el => fontLoader = el}
+            onChange={ev => loadFont(ev.nativeEvent)} />
+
+          <button onClick={() => fontLoader?.click()}>
+            Cargar fuente (TTF)
+          </button>
+
+          <button onClick={() => fontLoader?.click()}>
+            Cargar imagen
+          </button>
+          
+          <button onClick={() => setStarted(true)}>
+            Seguir sin referencia
+          </button>
+        </div>}
+
+      {started &&
+        <main className='decision-slides'>
+          <DecisionSlides />
+        </main>}
     </div>
   );
 }

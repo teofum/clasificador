@@ -7,6 +7,7 @@
   --color-base-darker: rgb(20, 20, 20);
 
   --color-accent: rgb(151, 215, 0);
+  --color-accent-075: rgba(151, 215, 0, 0.75);
   --color-warn: rgb(216, 14, 18);
   --color-warn-light: hsl(359, 75%, 60%);
 
@@ -27,6 +28,25 @@
   --anim-duration-short: 150ms;
 }
 
+body {  
+  background-color: var(--color-base);
+  color: var(--color-text);
+}
+
+a {
+  color: var(--color-accent);
+  cursor: pointer;
+}
+
+a:hover,
+a:active {
+  text-decoration: underline;
+}
+
+a:visited {
+  color: var(--color-accent-o75);
+}
+
 em {
   font-style: normal;
   color: var(--color-accent);
@@ -41,6 +61,7 @@ button {
   font-size: 1.125rem;
   letter-spacing: 0.03rem;
 
+  cursor: pointer;
   transition:
     background-color var(--anim-duration-short) ease-out,
     color var(--anim-duration-short) ease-out,

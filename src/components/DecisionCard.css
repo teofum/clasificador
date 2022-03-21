@@ -1,5 +1,5 @@
 .dcard-transition-group {
-  --card-width: 600px;
+  --card-width: 100%;
 
   display: grid;
   place-items: center;
@@ -7,6 +7,9 @@
   grid-auto-flow: column;
   width: var(--card-width);
   overflow: hidden;
+
+  max-width: calc(100vh - 18rem);
+  margin: 0 auto;
 }
 
 .card-exit {
@@ -22,22 +25,22 @@
 }
 
 .card-enter-active {
-  transform: scaleX(1) translateX(calc(var(--card-width) * -1));
+  transform: scaleX(1) translateX(calc(var(--card-width) * -1 - 4rem));
   transition: transform 500ms cubic-bezier(.96,-0.28,.26,1.18);
 }
 
 .card-exit-active {
-  transform: scaleX(1.5) translateX(calc(var(--card-width) * -1));
+  transform: scaleX(1.5) translateX(calc(var(--card-width) * -1 - 4rem));
   transition: transform 500ms cubic-bezier(.96,-0.28,.26,1.18);
 }
 
 .dcard-root {
   display: grid;
+  max-width: calc(100% - 4rem);
   
   background: var(--color-base-dark);
   border-radius: 6px;
   overflow: hidden;
-  max-width: 500px;
 }
 
 .dcard-anim {

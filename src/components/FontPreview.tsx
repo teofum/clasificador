@@ -5,9 +5,16 @@ import './FontPreview.css';
 interface FontPreviewProps {
   fontFace: string;
   fontName: string;
+  loadFont: () => void;
+  loadImage: () => void;
 }
 
-const FontPreview = ({ fontFace, fontName }: FontPreviewProps) => {
+const FontPreview = ({
+  fontFace,
+  fontName,
+  loadFont,
+  loadImage
+}: FontPreviewProps) => {
   const previewStyle = {
     fontFamily: fontFace || 'inherit'
   };
@@ -17,9 +24,17 @@ const FontPreview = ({ fontFace, fontName }: FontPreviewProps) => {
       <span className='pre-label'>
         {fontName || ''}
       </span>
-      <div className='pre-font' style={previewStyle}>
-        ASOMga
-      </div>
+
+      {fontFace &&
+        <div className='pre-font' style={previewStyle}>
+          ASOMga
+        </div>}
+      {!fontFace &&
+        <div className='pre-placeholder'>
+          <span>
+            Cargá una <a onClick={loadFont}>fuente</a> o <a onClick={loadImage}>imagen</a> para ver una referencia
+          </span>
+        </div>}
     </div>
   );
 };

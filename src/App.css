@@ -1,38 +1,49 @@
 .App {
   display: grid;
   grid-auto-flow: column;
-  grid-template-columns: auto auto;
-  grid-template-rows: auto auto;
+  grid-template-columns: 45ch 1fr;
+  grid-template-rows: 10rem auto;
 
-  place-items: center;
-  place-content: center;
+  justify-content: center;
+  align-content: start;
   gap: 2rem;
   height: 100vh;
-  
-  background-color: var(--color-base);
-  color: var(--color-text);
+  max-width: calc(45ch + 18rem + 600px);
+  margin: 0 auto;
+  padding: 2rem 8rem;
 }
 
 .title {
-  justify-self: start;
   align-self: end;
 
-  font-size: 2.5em;
+  font-size: 3.5em;
   font-weight: 900;
 }
 
 .summary {
-  place-self: stretch;
   background-color: inherit;
 
   z-index: 1;
 }
 
 .summary p {
-  max-width: 30ch;
   hyphens: auto;
 }
 
+.font-preview {
+  align-self: end;
+}
+
+.font-upload {
+  background-color: var(--color-base-dark);
+  border-radius: 6px;
+
+  display: grid;
+  place-content: center;
+  gap: 1rem;
+  padding: 1.5rem 3rem;
+}
+
 .decision-slides {
-  margin: 0 -50px;
+  margin: 0 -2rem;
 }

@@ -50,7 +50,7 @@ const DecisionCard = (props: DecisionCardProps) => {
               {isAnimation(node) &&
                 <FrameSeekerAnim
                   targetFrame={target}
-                  size='500px'
+                  size='100%'
                   animationData={node.animationData} />}
               {props.node.prompt &&
                 <p className='dcard-prompt'>{node.prompt}</p>}
