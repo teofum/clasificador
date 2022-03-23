@@ -103,7 +103,7 @@
 }
 
 .dcard-end-class {
-  font-size: 3.5em;
+  font-size: var(--font-large);
   font-weight: 900;
   line-height: 1;
 }

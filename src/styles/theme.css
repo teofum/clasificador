@@ -26,6 +26,8 @@
   --border-radius-round: 50%;
 
   --anim-duration-short: 150ms;
+
+  --font-large: 3.5em;
 }
 
 body {  
@@ -79,4 +81,10 @@ button:hover {
 
 button:active {
   border: 2px solid var(--color-accent);
+}
+
+@media screen and (max-width: 659px) {
+  :root {
+    --font-large: 2.5em;
+  }
 }

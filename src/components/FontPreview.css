@@ -18,3 +18,9 @@
   font-size: 4rem;
   line-height: 4rem;
 }
+
+@media screen and (max-width: 659px) {
+  .pre-font {
+    font-size: 3rem;
+  }
+}

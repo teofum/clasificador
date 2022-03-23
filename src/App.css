@@ -1,13 +1,13 @@
 .App {
   display: grid;
   grid-auto-flow: column;
-  grid-template-columns: 45ch 1fr;
+  grid-template-columns: min(45%, 45ch) 1fr;
   grid-template-rows: 10rem auto;
 
   justify-content: center;
   align-content: start;
   gap: 2rem;
-  height: 100vh;
+  min-height: 100vh;
   max-width: calc(45ch + 18rem + 600px);
   margin: 0 auto;
   padding: 2rem 8rem;
@@ -16,7 +16,7 @@
 .title {
   align-self: end;
 
-  font-size: 3.5em;
+  font-size: var(--font-large);
   font-weight: 900;
 }
 
@@ -46,4 +46,21 @@
 
 .decision-slides {
   margin: 0 -2rem;
+}
+
+@media screen and (max-width: 1199px) {
+  .App {
+    grid-template-columns: 100%;
+    grid-template-rows: 10rem auto 10rem auto;
+    padding-bottom: 5rem;
+    max-width: calc(45ch + 16rem);
+  }
+}
+
+@media screen and (max-width: 659px) {
+  .App {
+    grid-template-rows: auto auto 10rem auto;
+    padding: 5rem 2rem;
+    max-width: calc(45ch + 4rem);
+  }
 }
