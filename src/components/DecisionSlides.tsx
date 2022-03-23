@@ -1,9 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import testTree from '../assets/decision/testTree';
-import { DecisionNode, FinalNode, DecisionTree, isDecision } from '../utils/DecisionTree';
+import { DecisionNode, FinalNode, DecisionTree } from '../utils/DecisionTree';
 import DecisionCard from './DecisionCard';
 
-function DecisionSlides() {
+interface DecisionSlidesProps {
+  fontName: string;
+  resetFont: () => void;
+}
+
+function DecisionSlides({ fontName, resetFont }: DecisionSlidesProps) {
   const [lastNode, setLastNode] = useState<DecisionNode | FinalNode>();
   const [activeNode, setActiveNode] = useState<DecisionNode | FinalNode>();
   const [tree, setTree] = useState<DecisionTree>([]);
@@ -32,8 +37,12 @@ function DecisionSlides() {
   console.log(activeNode?.id);
   return (
     <div className='slides-root'>
-      {activeNode && isDecision(activeNode) &&
-        <DecisionCard node={activeNode} set={setActiveById} />
+      {activeNode &&
+        <DecisionCard fontName={fontName} node={activeNode}
+          set={setActiveById} reset={(font) => {
+            setActiveNode(tree[0]);
+            if (font) resetFont();
+          }} />
       }
     </div>
   );

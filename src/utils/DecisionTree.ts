@@ -23,7 +23,7 @@ export type DecisionNode = ImageNode | AnimationNode;
 
 export interface FinalNode {
   id: string;
-  // TODO: add whatever data we might need here
+  class: string;
 }
 
 export type DecisionTree = (DecisionNode | FinalNode)[];

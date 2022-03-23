@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
-import { DecisionNode, isAnimation } from '../utils/DecisionTree';
+import { DecisionNode, FinalNode, isAnimation, isDecision } from '../utils/DecisionTree';
 import FrameSeekerAnim from './FrameSeekerAnim';
 
 import './DecisionCard.css';
 
 export interface DecisionCardProps {
-  node: DecisionNode;
+  node: DecisionNode | FinalNode;
+  fontName: string;
   set: (id: string) => void;
+  reset: (resetFont: boolean) => void;
 }
 
 const DecisionCard = (props: DecisionCardProps) => {
@@ -19,8 +21,8 @@ const DecisionCard = (props: DecisionCardProps) => {
     setTimeout(() => props.set(next), 100);
   };
 
-  const decisionButtons = props.node.options
-    .map((option, i, arr) => {
+  const decisionButtons = (props.node as DecisionNode).options
+    ?.map((option, i, arr) => {
       // Set a default target frame unless a target frame for the option is specified
       let targetFrame: number;
 
@@ -41,25 +43,63 @@ const DecisionCard = (props: DecisionCardProps) => {
       );
     });
 
+  console.log(props.node);
   return (
     <TransitionGroup className='dcard-transition-group'>
       {[props.node].map(node => // hack to trigger the transition
-        <CSSTransition key={node.id} classNames='card' timeout={500}>
-          <div className='dcard-root'>
-            <div className='dcard-anim'>
-              {isAnimation(node) &&
-                <FrameSeekerAnim
-                  targetFrame={target}
-                  size='100%'
-                  animationData={node.animationData} />}
-              {props.node.prompt &&
-                <p className='dcard-prompt'>{node.prompt}</p>}
+        isDecision(node) ? (
+          <CSSTransition key={node.id} classNames='card' timeout={500}>
+            <div className='dcard-root'>
+              <div className='dcard-content'>
+                {isAnimation(node) &&
+                  <FrameSeekerAnim
+                    targetFrame={target}
+                    size='100%'
+                    animationData={node.animationData} />}
+
+                {!isAnimation(node) &&
+                  <img src={node.imageSrc} />}
+
+                {node.prompt &&
+                  <p className='dcard-prompt'>{node.prompt}</p>}
+              </div>
+              <div className='dcard-buttons'>
+                {decisionButtons}
+              </div>
             </div>
-            <div className='dcard-buttons'>
-              {decisionButtons}
+          </CSSTransition>
+        ) : (
+          <CSSTransition key={node.id} classNames='card' timeout={500}>
+            <div className='dcard-root dcard-end'>
+              {node.class &&
+                <div>
+                  Clasificaste {props.fontName} como:
+                </div>}
+              {node.class &&
+                <div className="dcard-end-class">
+                  {node.class.split('/').map(part =>
+                    part.charAt(0) === '#' ? (
+                      <em>{part.substring(1)}</em>
+                    ) : (
+                      <span>{part}</span>
+                    )
+                  )}
+                </div>}
+
+              {!node.class &&
+                <div>
+                  No pudimos clasificar {props.fontName}. Es posible que no entre en ninguna de las categorías
+                </div>}
+
+              <p>
+                Si pensás que te equivocaste en tu clasificación, podés{' '}
+                <a onClick={() => props.reset(false)}>volver a empezar</a>
+                , o podés <a onClick={() => props.reset(true)}>clasificar otra familia</a>.
+              </p>
             </div>
-          </div>
-        </CSSTransition>)}
+          </CSSTransition>
+        )
+      )}
     </TransitionGroup>
   );
 };

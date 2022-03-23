@@ -47,6 +47,10 @@ a:visited {
   color: var(--color-accent-o75);
 }
 
+p {
+  line-height: 1.5;
+}
+
 em {
   font-style: normal;
   color: var(--color-accent);

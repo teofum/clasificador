@@ -2,7 +2,8 @@
   --card-width: 100%;
 
   display: grid;
-  place-items: center;
+  justify-items: center;
+  align-items: start;
   grid-auto-columns: var(--card-width);
   grid-auto-flow: column;
   width: var(--card-width);
@@ -36,6 +37,7 @@
 
 .dcard-root {
   display: grid;
+  width: 100%;
   max-width: calc(100% - 4rem);
   
   background: var(--color-base-dark);
@@ -43,7 +45,7 @@
   overflow: hidden;
 }
 
-.dcard-anim {
+.dcard-content {
   position: relative;
   display: grid;
   place-items: center;
@@ -51,8 +53,13 @@
   border-bottom: 2px solid var(--color-base-lighter)
 }
 
-.dcard-anim > div {
+.dcard-content > div {
   display: grid;
+}
+
+.dcard-content > img {
+  width: 100vw; /* Just go as wide as possible */
+  max-width: 100%; /* …Up to the element's maximum width in the grid */
 }
 
 .dcard-prompt {
@@ -82,6 +89,23 @@
 
 .dcard-buttons .clicked {
   animation: clicked 200ms ease 50ms 1 normal both;
+}
+
+.dcard-end {
+  text-align: center;
+  place-items: center;
+  padding: 2.5rem 2rem;
+  gap: 3rem;
+}
+
+.dcard-end > * {
+  max-width: 45ch;
+}
+
+.dcard-end-class {
+  font-size: 3.5em;
+  font-weight: 900;
+  line-height: 1;
 }
 
 @keyframes clicked {

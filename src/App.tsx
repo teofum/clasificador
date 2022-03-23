@@ -75,7 +75,11 @@ function App() {
 
       {started &&
         <main className='decision-slides'>
-          <DecisionSlides />
+          <DecisionSlides fontName={customFontName} resetFont={() => {
+            setCustomFont('');
+            setCustomFontName('');
+            setStarted(false);
+          }} />
         </main>}
     </div>
   );
