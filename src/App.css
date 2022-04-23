@@ -1,7 +1,7 @@
 .App {
   display: grid;
   grid-auto-flow: column;
-  grid-template-columns: min(45%, 45ch) 1fr;
+  grid-template-columns: min(45%, 50ch) 1fr;
   grid-template-rows: 10rem auto;
 
   justify-content: center;
@@ -18,6 +18,8 @@
 
   font-size: var(--font-large);
   font-weight: 900;
+
+  margin-bottom: -0.22em;
 }
 
 .summary {
@@ -26,8 +28,8 @@
   z-index: 1;
 }
 
-.summary p {
-  hyphens: auto;
+.summary p + p {
+  margin-top: 1em;
 }
 
 .font-preview {
@@ -42,6 +44,8 @@
   place-content: center;
   gap: 1rem;
   padding: 1.5rem 3rem;
+
+  align-self: start;
 }
 
 .decision-slides {

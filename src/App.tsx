@@ -5,6 +5,7 @@ import DecisionSlides from './components/DecisionSlides';
 import FontPreview from './components/FontPreview';
 
 import './App.css';
+import Anchor from './components/Anchor';
 
 function App() {
   const [started, setStarted] = useState(false);
@@ -40,10 +41,20 @@ function App() {
 
       <div className='summary'>
         <p>
-          Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
-          nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
-          volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation
-          ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+          El Clasificador es un recurso para entender la clasificación 
+          tipográfica que funciona a partir de preguntas binarias sobre 
+          distintas características tipográficas. Las respuestas positivas 
+          o negativas determinan un recorrido hacia la clasificación final.
+        </p>
+        <p>
+          Esta versión interactiva está basada 
+          en <Anchor href='http://www.oert.org/el-clasificador/'>este circuito</Anchor> desarrollado 
+          en 2001. Para comenzar, tenés que elegir una tipografía e iniciar el recorrido 
+          a partir de definir si es de palo seco (sans serif) o no. Esa decisión 
+          te abre dos caminos diferentes. Las respuestas que des a cada pregunta 
+          («sí» o «no») te guiarán en el recorrido del circuito. Al final del 
+          mismo llegarás a una de las categorías o determinarás que no es posible 
+          su clasificación en este sistema.
         </p>
       </div>
 
@@ -67,7 +78,7 @@ function App() {
           <button onClick={() => fontLoader?.click()}>
             Cargar imagen
           </button>
-          
+
           <button onClick={() => setStarted(true)}>
             Seguir sin referencia
           </button>
