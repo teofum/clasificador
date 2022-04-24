@@ -30,7 +30,7 @@ const FrameSeekerAnim = (props: FrameSeekerAnimProps) => {
   useEffect(() => {
     if (!anim) return;
     
-    anim.setSpeed(3);
+    anim.setSpeed(1);
     playToFrame(anim, props.targetFrame);
   }, [anim, props.targetFrame]);
 

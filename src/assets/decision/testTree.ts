@@ -1,9 +1,12 @@
 import anim_01_serif_sans from '../01_serif_sans.json';
 import anim_02_stroke from '../02_stroke.json';
+import anim_07_serif_axis from '../04_serif_axis.json';
+import anim_08a_serif_contrast from '../serif_contrast.json';
 
 import svg_03_sans_geom from '../sans_geom.svg';
-import svg_04_sans_human from '../sans_human.svg';
+import svg_04_sans_human from '../sans_huma.svg';
 import svg_05_sans_grot from '../sans_grot.svg';
+import svg_15_serif_slab from '../serif_slab.svg';
 
 import { DecisionTree } from '../../utils/DecisionTree';
 
@@ -14,7 +17,7 @@ const testTree: DecisionTree = [
     options: [
       {
         displayText: 'Serif',
-        leadsTo: '05_stroke_serif'
+        leadsTo: '06_stroke_serif'
       },
       {
         displayText: 'Palo seco',
@@ -82,16 +85,68 @@ const testTree: DecisionTree = [
     ]
   },
   {
-    id: '05_stroke_serif',
+    id: '06_stroke_serif',
     animationData: anim_02_stroke,
     options: [
       {
         displayText: 'Trazo gradual',
-        leadsTo: 'fake_option_0'
+        leadsTo: '07_serif_axis'
       },
       {
         displayText: 'Trazo uniforme',
-        leadsTo: 'fake_option_1'
+        leadsTo: '15_serif_slab'
+      }
+    ]
+  },
+  {
+    id: '07_serif_axis',
+    animationData: anim_07_serif_axis,
+    prompt: '¿Cómo es el eje de modulación?',
+    options: [
+      {
+        displayText: 'Vertical',
+        leadsTo: 'E00_unclassified'
+      },
+      {
+        displayText: 'Inclinado',
+        leadsTo: '08a_serif_contrast'
+      }
+    ]
+  },
+  {
+    id: '08a_serif_contrast',
+    animationData: anim_08a_serif_contrast,
+    prompt: '¿Cómo es el contraste entre finos y gruesos?',
+    options: [
+      {
+        displayText: 'Alto',
+        leadsTo: 'E00_unclassified',
+        targetFrame: 0
+      },
+      {
+        displayText: 'Medio',
+        leadsTo: 'E00_unclassified',
+        targetFrame: 30
+      },
+      {
+        displayText: 'Bajo',
+        leadsTo: 'E00_unclassified',
+        targetFrame: 60
+      }
+    ]
+  },
+  {
+    id: '15_serif_slab',
+    imageSrc: svg_15_serif_slab,
+    prompt: '¿Los remates tienen un ancho similar al trazo?',
+    options: [
+      {
+        displayText: 'Sí',
+        leadsTo: 'E04_serif_slab'
+      },
+      {
+        displayText: 'No',
+        leadsTo: 'E00_unclassified'
       }
     ]
   },
@@ -115,7 +170,7 @@ const testTree: DecisionTree = [
   },
   {
     id: 'E04_serif_slab',
-    class: '/#Egipcia/ (Slab serif)'
+    class: '/#Egipcia/ (Slab serif)'
   },
   {
     id: 'E05_serif_mod',

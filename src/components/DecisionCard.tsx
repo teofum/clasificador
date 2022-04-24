@@ -88,7 +88,7 @@ const DecisionCard = (props: DecisionCardProps) => {
 
               {!node.class &&
                 <div>
-                  No pudimos clasificar {props.fontName}. Es posible que no entre en ninguna de las categorías
+                  No pudimos clasificar {props.fontName}. Es posible que no entre en ninguna de las categorías.
                 </div>}
 
               <p>
