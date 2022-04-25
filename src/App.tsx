@@ -3,9 +3,11 @@ import opentype from 'opentype.js';
 
 import DecisionSlides from './components/DecisionSlides';
 import FontPreview from './components/FontPreview';
+import Anchor from './components/Anchor';
 
 import './App.css';
-import Anchor from './components/Anchor';
+
+import { version } from '../package.json';
 
 function App() {
   const [started, setStarted] = useState(false);
@@ -56,11 +58,6 @@ function App() {
           mismo llegarás a una de las categorías o determinarás que no es posible
           su clasificación en este sistema.
         </p>
-
-        <p className='credits'>
-          Diseño y desarrollo por <Anchor href='http://fumagalli.ar/'>Teo Fumagalli</Anchor> en
-          colaboración con el equipo docente de Cátedra Cosgaya.
-        </p>
       </div>
 
       <div className='font-preview'>
@@ -97,6 +94,11 @@ function App() {
             setStarted(false);
           }} />
         </main>}
+
+      <div className='credits'>
+        Diseño y desarrollo por <Anchor href='http://fumagalli.ar/'>Teo Fumagalli</Anchor> en
+        colaboración con el equipo docente de Cátedra Cosgaya. <span className='small'>v{version}</span>
+      </div>
     </div>
   );
 }

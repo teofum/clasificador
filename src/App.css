@@ -2,7 +2,7 @@
   display: grid;
   grid-auto-flow: column;
   grid-template-columns: min(45%, 50ch) 1fr;
-  grid-template-rows: 10rem auto;
+  grid-template-rows: 10rem auto auto;
 
   justify-content: center;
   align-content: start;
@@ -32,10 +32,15 @@
   margin-top: 1em;
 }
 
-.summary p.credits {
-  margin-top: 3em;
-
+.credits {
+  grid-row: 3;
+  grid-column: 1 / span 2;
   color: var(--color-text-light);
+}
+
+.small {
+  font-size: 0.75em;
+  color: var(--color-text-lighter);
 }
 
 .font-preview {
@@ -61,15 +66,20 @@
 @media screen and (max-width: 1199px) {
   .App {
     grid-template-columns: 100%;
-    grid-template-rows: 10rem auto 10rem auto;
+    grid-template-rows: 10rem auto 10rem auto auto;
     padding-bottom: 5rem;
     max-width: calc(45ch + 16rem);
+  }
+
+  .credits {
+    grid-row: 5;
+    grid-column: 1 / span 1;
   }
 }
 
 @media screen and (max-width: 659px) {
   .App {
-    grid-template-rows: auto auto 10rem auto;
+    grid-template-rows: repeat(5, auto);
     padding: 5rem 2rem;
     max-width: calc(45ch + 4rem);
   }

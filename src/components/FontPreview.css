@@ -1,11 +1,21 @@
-.pre-font,
-.pre-placeholder {
+.pre-container {
   background-color: var(--color-base-dark);
   border-radius: 6px;
-  margin-top: 0.5rem;
-
-  min-height: 7rem;
   padding: 1.5rem 3rem;
+}
+
+.pre-label {
+  width: 100%;
+
+  font-size: 1.5em;
+  text-align: center;
+}
+
+.pre-font,
+.pre-placeholder {
+  margin-top: 1.5rem;
+
+  min-height: 4rem;
   text-align: center;
 }
 

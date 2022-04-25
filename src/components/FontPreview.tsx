@@ -21,9 +21,9 @@ const FontPreview = ({
 
   return (
     <div className='pre-container'>
-      <span className='pre-label'>
+      <div className='pre-label'>
         {fontName || ''}
-      </span>
+      </div>
 
       {fontFace &&
         <div className='pre-font' style={previewStyle}>
