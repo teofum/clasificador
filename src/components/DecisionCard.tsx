@@ -26,11 +26,11 @@ const DecisionCard = (props: DecisionCardProps) => {
       // Set a default target frame unless a target frame for the option is specified
       let targetFrame: number;
 
-      // Assume a 30 frame (500ms) animation, for a different animation length targets
+      // Assume a 10 frame (1/6s) animation, for a different animation length targets
       // should be specified for each option.
       // TODO: find a way to get the actual length of the animation, use that instead
       if (option.targetFrame === undefined)
-        targetFrame = 30 / (arr.length - 1) * i;
+        targetFrame = 10 / (arr.length - 1) * i;
       else targetFrame = option.targetFrame;
 
       return (

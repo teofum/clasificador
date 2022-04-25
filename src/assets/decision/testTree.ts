@@ -2,11 +2,17 @@ import anim_01_serif_sans from '../01_serif_sans.json';
 import anim_02_stroke from '../02_stroke.json';
 import anim_07_serif_axis from '../04_serif_axis.json';
 import anim_08a_serif_contrast from '../serif_contrast.json';
+import anim_08b_serif_contrast_simple from '../serif_contrast_simple.json';
+import anim_13_serif_e_axis from '../serif_e_axis.json';
 
 import svg_03_sans_geom from '../sans_geom.svg';
 import svg_04_sans_human from '../sans_huma.svg';
 import svg_05_sans_grot from '../sans_grot.svg';
-import svg_15_serif_slab from '../serif_slab.svg';
+import svg_09_serif_mod from '../serif_mod.svg';
+import svg_10_serif_trn from '../serif_trn.svg';
+import svg_11_serif_old from '../serif_old.svg';
+import svg_12_serif_human from '../serif_hum.svg';
+import svg_14_serif_slab from '../serif_slab.svg';
 
 import { DecisionTree } from '../../utils/DecisionTree';
 
@@ -94,7 +100,7 @@ const testTree: DecisionTree = [
       },
       {
         displayText: 'Trazo uniforme',
-        leadsTo: '15_serif_slab'
+        leadsTo: '14_serif_slab'
       }
     ]
   },
@@ -105,7 +111,7 @@ const testTree: DecisionTree = [
     options: [
       {
         displayText: 'Vertical',
-        leadsTo: 'E00_unclassified'
+        leadsTo: '08b_serif_contrast_simple'
       },
       {
         displayText: 'Inclinado',
@@ -119,25 +125,117 @@ const testTree: DecisionTree = [
     prompt: '¿Cómo es el contraste entre finos y gruesos?',
     options: [
       {
-        displayText: 'Alto',
-        leadsTo: 'E00_unclassified',
+        displayText: 'Pronunciado',
+        leadsTo: '10_serif_trn',
         targetFrame: 0
       },
       {
         displayText: 'Medio',
-        leadsTo: 'E00_unclassified',
-        targetFrame: 30
+        leadsTo: '11_serif_old',
+        targetFrame: 10
       },
       {
-        displayText: 'Bajo',
-        leadsTo: 'E00_unclassified',
-        targetFrame: 60
+        displayText: 'Ligero',
+        leadsTo: '12_serif_human',
+        targetFrame: 20
       }
     ]
   },
   {
-    id: '15_serif_slab',
-    imageSrc: svg_15_serif_slab,
+    id: '08b_serif_contrast_simple',
+    animationData: anim_08b_serif_contrast_simple,
+    prompt: '¿Cómo es el contraste entre finos y gruesos?',
+    options: [
+      {
+        displayText: 'Pronunciado',
+        leadsTo: '09_serif_mod'
+      },
+      {
+        displayText: 'Medio o bajo',
+        leadsTo: '14_serif_slab'
+      }
+    ]
+  },
+  {
+    id: '09_serif_mod',
+    imageSrc: svg_09_serif_mod,
+    prompt: '¿Tiene remates filiformes?',
+    options: [
+      {
+        displayText: 'Sí',
+        leadsTo: 'E05_serif_mod'
+      },
+      {
+        displayText: 'No',
+        leadsTo: '10_serif_trn'
+      }
+    ]
+  },
+  {
+    id: '10_serif_trn',
+    imageSrc: svg_10_serif_trn,
+    prompt: '¿Los remates son triangulares y cóncavos?',
+    options: [
+      {
+        displayText: 'Sí',
+        leadsTo: 'E06_serif_trn'
+      },
+      {
+        displayText: 'No',
+        leadsTo: '11_serif_old'
+      }
+    ]
+  },
+  {
+    id: '11_serif_old',
+    imageSrc: svg_11_serif_old,
+    prompt: '¿Los remates son finos y largos?',
+    options: [
+      {
+        displayText: 'Sí',
+        leadsTo: 'E07_serif_old'
+      },
+      {
+        displayText: 'No',
+        leadsTo: '12_serif_human'
+      }
+    ]
+  },
+  {
+    id: '12_serif_human',
+    imageSrc: svg_12_serif_human,
+    prompt: '¿Los remates son triangulares, gruesos y cortos?',
+    options: [
+      {
+        displayText: 'Sí',
+        leadsTo: '13_serif_e_axis'
+      },
+      {
+        displayText: 'No',
+        leadsTo: 'E00_unclassified'
+      }
+    ]
+  },
+  {
+    id: '13_serif_e_axis',
+    animationData: anim_13_serif_e_axis,
+    prompt: '¿La barra de la letra «e» es inclinada?',
+    options: [
+      {
+        displayText: 'Sí',
+        leadsTo: 'E08_serif_human',
+        targetFrame: 10
+      },
+      {
+        displayText: 'No',
+        leadsTo: 'E00_unclassified',
+        targetFrame: 0
+      }
+    ]
+  },
+  {
+    id: '14_serif_slab',
+    imageSrc: svg_14_serif_slab,
     prompt: '¿Los remates tienen un ancho similar al trazo?',
     options: [
       {
