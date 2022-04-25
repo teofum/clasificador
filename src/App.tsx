@@ -41,20 +41,25 @@ function App() {
 
       <div className='summary'>
         <p>
-          El Clasificador es un recurso para entender la clasificación 
-          tipográfica que funciona a partir de preguntas binarias sobre 
-          distintas características tipográficas. Las respuestas positivas 
+          El Clasificador es un recurso para entender la clasificación
+          tipográfica que funciona a partir de preguntas binarias sobre
+          distintas características tipográficas. Las respuestas positivas
           o negativas determinan un recorrido hacia la clasificación final.
         </p>
         <p>
-          Esta versión interactiva está basada 
-          en <Anchor href='http://www.oert.org/el-clasificador/'>este circuito</Anchor> desarrollado 
-          en 2001. Para comenzar, tenés que elegir una tipografía e iniciar el recorrido 
-          a partir de definir si es de palo seco (sans serif) o no. Esa decisión 
-          te abre dos caminos diferentes. Las respuestas que des a cada pregunta 
-          («sí» o «no») te guiarán en el recorrido del circuito. Al final del 
-          mismo llegarás a una de las categorías o determinarás que no es posible 
+          Esta versión interactiva está basada
+          en <Anchor href='http://www.oert.org/el-clasificador/'>este circuito</Anchor> desarrollado
+          en 2001. Para comenzar, tenés que elegir una tipografía e iniciar el recorrido
+          a partir de definir si es de palo seco (sans serif) o no. Esa decisión
+          te abre dos caminos diferentes. Las respuestas que des a cada pregunta
+          («sí» o «no») te guiarán en el recorrido del circuito. Al final del
+          mismo llegarás a una de las categorías o determinarás que no es posible
           su clasificación en este sistema.
+        </p>
+
+        <p className='credits'>
+          Diseño y desarrollo por <Anchor href='http://fumagalli.ar/'>Teo Fumagalli</Anchor> en
+          colaboración con el equipo docente de Cátedra Cosgaya.
         </p>
       </div>
 

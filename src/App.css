@@ -32,6 +32,12 @@
   margin-top: 1em;
 }
 
+.summary p.credits {
+  margin-top: 3em;
+
+  color: var(--color-text-light);
+}
+
 .font-preview {
   align-self: end;
 }
