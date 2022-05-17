@@ -27,7 +27,7 @@ const FontPreview = ({
 
       {fontFace &&
         <div className='pre-font' style={previewStyle}>
-          ASOMga
+          ASOMgae
         </div>}
       {!fontFace &&
         <div className='pre-placeholder'>
