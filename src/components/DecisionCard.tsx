@@ -68,7 +68,11 @@ const DecisionCard = (props: DecisionCardProps) => {
                   <img src={node.imageSrc} />}
 
                 {node.prompt &&
-                  <p className='dcard-prompt'>{node.prompt}</p>}
+                  <p className='dcard-prompt'>
+                    {node.prompt.split('\n').map((prompt, i) => (
+                      <div key={i}>{prompt}</div>
+                    ))}
+                  </p>}
               </div>
 
               <div className='dcard-buttons'>
