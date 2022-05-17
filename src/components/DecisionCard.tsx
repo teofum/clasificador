@@ -10,6 +10,7 @@ export interface DecisionCardProps {
   node: DecisionNode | FinalNode;
   fontName: string;
   set: (id: string) => void;
+  back: () => void;
   reset: (resetFont: boolean) => void;
 }
 
@@ -50,6 +51,12 @@ const DecisionCard = (props: DecisionCardProps) => {
         isDecision(node) ? (
           <CSSTransition key={node.id} classNames='card' timeout={500}>
             <div className='dcard-root'>
+              {props.node.id !== '01_serif_sans' &&
+                <div className="dcard-top">
+                  <button onClick={() => props.back()}>Atrás</button>
+                  <button onClick={() => props.reset(true)}>Inicio</button>
+                </div>}
+
               <div className='dcard-content'>
                 {isAnimation(node) &&
                   <FrameSeekerAnim
@@ -63,6 +70,7 @@ const DecisionCard = (props: DecisionCardProps) => {
                 {node.prompt &&
                   <p className='dcard-prompt'>{node.prompt}</p>}
               </div>
+
               <div className='dcard-buttons'>
                 {decisionButtons}
               </div>
