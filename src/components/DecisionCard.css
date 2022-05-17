@@ -108,6 +108,12 @@
   line-height: 1;
 }
 
+@media screen and (max-width: 659px) {
+  .dcard-buttons {
+    flex-direction: column;
+  }
+}
+
 @keyframes clicked {
   0% {
     border-color: transparent;
