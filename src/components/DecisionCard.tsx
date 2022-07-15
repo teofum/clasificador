@@ -51,11 +51,12 @@ const DecisionCard = (props: DecisionCardProps) => {
         isDecision(node) ? (
           <CSSTransition key={node.id} classNames='card' timeout={500}>
             <div className='dcard-root'>
-              {props.node.id !== '01_serif_sans' &&
-                <div className="dcard-top">
+              <div className="dcard-top">
+                {props.node.id !== '01_serif_sans' &&
                   <button onClick={() => props.back()}>Atrás</button>
-                  <button onClick={() => props.reset(true)}>Inicio</button>
-                </div>}
+                }
+                <button onClick={() => props.reset(true)}>Inicio</button>
+              </div>
 
               <div className='dcard-content'>
                 {isAnimation(node) &&
@@ -85,7 +86,7 @@ const DecisionCard = (props: DecisionCardProps) => {
             <div className='dcard-root dcard-end'>
               {node.class &&
                 <div>
-                  Clasificaste {props.fontName} como:
+                  Clasificaste {props.fontName || 'esta familia'} como:
                 </div>}
               {node.class &&
                 <div className="dcard-end-class">

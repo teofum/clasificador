@@ -40,8 +40,8 @@
   width: 100%;
   max-width: calc(100% - 4rem);
   
-  background: var(--color-base-dark);
-  border: 1px solid var(--color-highlight);
+  background: var(--color-base);
+  border: 1px solid var(--color-base-darker);
   border-radius: 6px;
   overflow: hidden;
 }
