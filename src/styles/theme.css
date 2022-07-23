@@ -75,6 +75,12 @@ button {
     border-color var(--anim-duration-short) ease-out;
 }
 
+button.small {
+  font-size: 0.875rem;
+  letter-spacing: 0;
+  padding: 0.5rem 1rem;
+}
+
 button:hover {
   color: var(--color-accent);
   background: var(--color-base-light);

@@ -40,7 +40,7 @@
   align-self: end;
 }
 
-.small {
+span.small {
   font-size: 0.75em;
   color: var(--color-text-lighter);
 }
