@@ -9,7 +9,8 @@
   width: var(--card-width);
   overflow: hidden;
 
-  max-width: calc(100vh - 18rem);
+  min-width: 420px;
+  max-width: calc(100vh - 23rem);
   margin: 0 auto;
 }
 
@@ -128,6 +129,10 @@
 }
 
 @media screen and (max-width: 659px) {
+  .dcard-transition-group {
+    min-width: unset;
+  }
+
   .dcard-buttons {
     flex-direction: column;
   }
