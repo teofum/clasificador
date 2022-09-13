@@ -9,8 +9,6 @@
   width: var(--card-width);
   overflow: hidden;
 
-  min-width: 530px;
-  max-width: calc(100vh - 23rem);
   margin: 0 auto;
 }
 
