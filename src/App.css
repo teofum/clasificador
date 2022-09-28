@@ -28,17 +28,19 @@
   z-index: 1;
 }
 
-.summary p + p {
+.summary p+p {
   margin-top: 1em;
 }
 
 .credits {
   grid-row: 3;
-  grid-column: 1 / span 2;
+  grid-column: 1;
   color: var(--color-text-light);
+
+  align-self: end;
 }
 
-.small {
+span.small {
   font-size: 0.75em;
   color: var(--color-text-lighter);
 }
@@ -48,7 +50,8 @@
 }
 
 .font-upload {
-  background-color: var(--color-base-dark);
+  background-color: var(--color-base);
+  border: 1px solid var(--color-base-darker);
   border-radius: 6px;
 
   display: grid;
@@ -60,6 +63,7 @@
 }
 
 .decision-slides {
+  grid-row: span 2;
   margin: 0 -2rem;
 }
 
@@ -69,6 +73,11 @@
     grid-template-rows: 10rem auto 10rem auto auto;
     padding-bottom: 5rem;
     max-width: calc(45ch + 16rem);
+  }
+
+  .decision-slides {
+    grid-row: span 1;
+    margin: 0 -2rem;
   }
 
   .credits {

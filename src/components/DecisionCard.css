@@ -9,7 +9,6 @@
   width: var(--card-width);
   overflow: hidden;
 
-  max-width: calc(100vh - 18rem);
   margin: 0 auto;
 }
 
@@ -40,9 +39,27 @@
   width: 100%;
   max-width: calc(100% - 4rem);
   
-  background: var(--color-base-dark);
+  background: var(--color-base);
+  border: 1px solid var(--color-base-darker);
   border-radius: 6px;
   overflow: hidden;
+}
+
+.dcard-top {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  padding: 0.5rem;
+  border-bottom: 1px solid var(--color-base-darker);
+}
+
+.dcard-top-space {
+  flex-grow: 1;
+}
+
+.dcard-btn-next {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
 }
 
 .dcard-content {
@@ -50,7 +67,7 @@
   display: grid;
   place-items: center;
 
-  border-bottom: 2px solid var(--color-base-lighter)
+  border-bottom: 1px solid var(--color-base-darker);
 }
 
 .dcard-content > div {
@@ -88,10 +105,11 @@
 }
 
 .dcard-buttons .clicked {
-  animation: clicked 200ms ease 50ms 1 normal both;
+  animation: clicked 300ms ease 50ms 1 normal both;
 }
 
 .dcard-end {
+  display: grid;
   text-align: center;
   place-items: center;
   padding: 2.5rem 2rem;
@@ -108,18 +126,34 @@
   line-height: 1;
 }
 
+@media screen and (max-width: 659px) {
+  .dcard-transition-group {
+    min-width: unset;
+  }
+
+  .dcard-prompt {
+    padding: 1rem 1.5rem;
+  }
+
+  .dcard-buttons {
+    flex-direction: column;
+  }
+}
+
 @keyframes clicked {
   0% {
     border-color: transparent;
-    transform: scale(1);
   }
 
-  50% {
+  34% {
     border-color: var(--color-accent);
   }
 
-  100% {
+  67% {
     border-color: transparent;
-    transform: scale(1);
+  }
+
+  100% {
+    border-color: var(--color-accent);
   }
 }
